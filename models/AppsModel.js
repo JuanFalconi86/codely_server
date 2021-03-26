@@ -10,7 +10,7 @@ const appsSchema = new Schema({
     },
     appDescription: String,
     technology: {
-        type: Schema.Types.ObjectId,
+        type: [Schema.Types.ObjectId],
         ref: "Technology"
     },
     proprietaryCompany: {
@@ -25,10 +25,6 @@ const appsSchema = new Schema({
         "Gaming", "Design/Graphics", "Shopping", "Health/Fitness",
         "Lifestyle", "Sport", "Kids", "Utilities"
     ]
-    },
-    technologyUse: {
-        type: Schema.Types.ObjectId,
-        ref: "Technology"
     }
 })
 

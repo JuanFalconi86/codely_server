@@ -56,7 +56,22 @@ const apps = [
 
 ];
 
-AppsModel.create(apps)
+const oneApp = [
+  {
+    appName: "SimoApp",
+    appLogo:
+      "https://res.cloudinary.com/djogypr9r/image/upload/v1616765562/quora_n18d7f.png",
+    appDescription: "Juan App Description",
+    appCategory: "Search",
+    technology: ["605deb5914db1951c4a970df", "605deb5914db1951c4a970e1"],
+    proprietaryCompany: "605deabcecdb5d52065fd20b",
+    appCategory: "News/Media"
+  }
+];
+
+
+
+AppsModel.create(oneApp)
     .then((dbRes) => {
         console.log(dbRes);
     })
