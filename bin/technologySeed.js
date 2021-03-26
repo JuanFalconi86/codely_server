@@ -4,13 +4,13 @@ const TechnologyModel = require("../models/TechnologyModel")
 
 const someTechnologies = [
   {
-    name: "Javascript FrontEnd",
+    name: "Javascript",
     category: "Front-End",
     logo:
       "https://www.seekpng.com/png/detail/80-803501_javascript-logo-logo-de-java-script-png.png",
   },
   {
-    name: "Javascript BackEnd",
+    name: "Javascript",
     category: "Back-End",
     logo:
       "https://www.seekpng.com/png/detail/80-803501_javascript-logo-logo-de-java-script-png.png",
