@@ -64,5 +64,6 @@ AppsModel.create(apps)
         console.log(error);
     });
 
- 
+    mongoose.connection.close();
+
 
