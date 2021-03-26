@@ -1,0 +1,67 @@
+require("dotenv").config();
+require('./../config/dbConnection');
+
+const AppsModel = require("./../models/AppsModel")
+
+const apps = [
+    
+{
+    appName: "Airbnb",
+    appLogo: "https://res.cloudinary.com/djogypr9r/image/upload/v1616764440/rbnb_ellobm.jpg",
+    addDescription: "Airbnb makes finding local homes for your holidays really easy.",
+    appCategory: "Lifestyle"
+
+},
+
+{
+    appName: "Instagram",
+    appLogo: "https://res.cloudinary.com/djogypr9r/image/upload/v1616764900/ig-logo_c5pat9.webp",
+    addDescription: "Share your favorite moments on instagram with your favorite people",
+    appCategory: "Social Media"
+
+},
+
+{
+    appName: "Instagram",
+    appLogo: "https://res.cloudinary.com/djogypr9r/image/upload/v1616764900/ig-logo_c5pat9.webp",
+    addDescription: "Share your favorite moments on instagram with your favorite people",
+    appCategory: "Social Media"
+
+},
+
+{
+    appName: "Uber",
+    appLogo: "https://res.cloudinary.com/djogypr9r/image/upload/v1616765260/uber-logo_jr65np.jpg",
+    addDescription: "Share your favorite moments on instagram with your favorite people",
+    appCategory: "Search"
+
+},
+
+{
+    appName: "The New York Times",
+    appLogo: "https://res.cloudinary.com/djogypr9r/image/upload/v1616765433/nyt_yxril6.jpg",
+    addDescription: "The New York Times is an American daily newspaper based in New York City with a worldwide readership. Founded in 1851, the Times has since won 130 Pulitzer Prizes, and has long been regarded within the industry as a national newspaper of record. It is ranked 18th in the world by circulation and 3rd in the U.S.",
+    appCategory: "News/Media"
+
+},
+
+{
+    appName: "Quora",
+    appLogo: "https://res.cloudinary.com/djogypr9r/image/upload/v1616765562/quora_n18d7f.png",
+    addDescription: "Quora is an American question-and-answer website where questions are asked, answered, followed, and edited by Internet users, either factually or in the form of opinions. Its owner, Quora Inc., is based in Mountain View, California, United States.",
+    appCategory: "Search"
+
+},
+
+];
+
+AppsModel.create(apps)
+    .then((dbRes) => {
+        console.log(dbRes);
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+
+
+

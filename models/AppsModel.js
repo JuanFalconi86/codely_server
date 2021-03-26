@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const Schema = new Schema({
+const appsSchema = new Schema({
     appName: String,
     appLogo: {
         type: String,
@@ -32,4 +32,5 @@ const Schema = new Schema({
     }
 })
 
-mongoose.exports = mongosse.model("Apps", Schema);
+const AppsModel = mongoose.model("Apps", appsSchema);
+module.exports = AppsModel;
