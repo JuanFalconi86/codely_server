@@ -46,12 +46,12 @@ const authRouter = require("./routes/auth");
 
 app.use("/api/auth", authRouter);
 
-// 404 Middleware
-// app.use((req, res, next) => {
-//   const error = new Error("Ressource not found.");
-//   error.status = 404;
-//   next(err);
-// });
+//404 Middleware
+app.use((req, res, next) => {
+  const error = new Error("Ressource not found.");
+  error.status = 404;
+  next(error);
+});
 
 // Error handler middleware
 // If you pass an argument to your next function in any of your routes or middlewares

@@ -4,7 +4,12 @@ const Schema = mongoose.Schema;
 const schema = new Schema(
   {
     companyName: String,
-    companyIndustry: String,
+    companyIndustry: {
+      type:String,
+      enum: ["Banking", "Software", "Automotive", "Pharma", "Telecom",
+        "Metals & Mining", "News/Media", "Social Media", "Real Estate", "Infrastructure & Construction", "FMCG", "Energy", "Financial Services"
+    ]
+    },
     representativePhotoUrl: {
       type: String,
       default: "https://t4.ftcdn.net/jpg/04/10/43/77/360_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg"
