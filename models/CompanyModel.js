@@ -14,11 +14,11 @@ const schema = new Schema(
       type: String,
       default: "https://t4.ftcdn.net/jpg/04/10/43/77/360_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg"
     },
-    representativeFirstName: String,
-    representativeLastName: String,
+    firstName: String,
+    lastName: String,
     representativePosition: String,
-    representativeEmail: String,
-    representativePassword: String,
+    email: String,
+    password: String,
     companyLogoUrl: {
       type: String,
       default: "https://yoda.youthhubafrica.org/wp-content/uploads/2017/09/hkx40wm1lkzzqy35kptv.png"
