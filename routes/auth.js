@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const CompanyModel = require("../models/CompanyModel");
+const uploader = require("../config/cloudinary");
 
 const salt = 10;
 
@@ -24,7 +25,7 @@ router.post("/signin", (req, res, next) => {
     .catch(next);
 });
 
-router.post("/signup", (req, res, next) => {
+router.post("/signup", uploader.single("picture"), (req, res, next) => {
   const { email, password, firstName, lastName } = req.body;
 
   CompanyModel.findOne({ email })
@@ -67,6 +68,11 @@ router.get("/logout", (req, res, next) => {
     else res.status(200).json({ message: "Succesfully disconnected." });
   });
 });
+
+
+
+
+
 
 
 

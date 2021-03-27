@@ -54,7 +54,7 @@ router.post("/application/create", uploader.single("picture"), (req, res, next)=
 
 // ROUTE POUR UPDATER UNE APPLICATION
 
-router.patch("/applications/:id", (req, res, next)=>{
+router.patch("/applications/:id", uploader.single("picture"), (req, res, next)=>{
     AppsModel.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then((updatedApp)=>{
         res.status(200).json(updatedApp)

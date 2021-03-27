@@ -44,9 +44,14 @@ app.use(function (req, res, next) {
 
 const authRouter = require("./routes/auth");
 const applicationsRouter = require("./routes/applicationsRoutes")
+const technologyRouter = require("./routes/technologyRoutes")
+const companyRouter = require('./routes/companyRoute')
+
 
 app.use("/api/auth", authRouter);
 app.use("/api", applicationsRouter)
+app.use("/api", technologyRouter)
+app.use("/api", companyRouter)
 
 //404 Middleware
 app.use((req, res, next) => {
