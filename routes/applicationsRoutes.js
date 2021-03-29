@@ -3,10 +3,11 @@ const router = express.Router();
 const AppsModel = require("../models/AppsModel")
 const TechnologyModel = require("../models/TechnologyModel")
 const uploader = require("../config/cloudinary")
+const protectRoute = require('./../middlewares/protectRoutes')
 
 // ROUTE TO DISPLAY ALL THE APPLICATIONS:
 
-router.get("/applications", (req, res, next)=>{  // PAS OUBLIER DE POPULATE
+router.get("/applications", protectRoute,(req, res, next)=>{  // PAS OUBLIER DE POPULATE
     AppsModel.find()
     .then((application)=>{
         res.status(200).json(application)
@@ -17,7 +18,7 @@ router.get("/applications", (req, res, next)=>{  // PAS OUBLIER DE POPULATE
 })
 
 // ROUTE TO FIND A SINGLE APPLICATION BY ID:
-router.get("/applications/:id", (req, res, next) => {  // PAS OUBLIER DE POPULATE
+router.get("/applications/:id", protectRoute, (req, res, next) => {  // PAS OUBLIER DE POPULATE
   AppsModel.findById(req.params.id)
     .then((application) => {
       res.status(200).json(application);
@@ -29,7 +30,7 @@ router.get("/applications/:id", (req, res, next) => {  // PAS OUBLIER DE POPULAT
 
 // ROUTE TO CREATE A NEW APPLICATION:
 // D'abord, on récupère les informations des technologies pour les mettre dans le formulaire
-router.get("/application/create", (req, res, next)=>{   
+router.get("/application/create", protectRoute, (req, res, next)=>{   
     TechnologyModel.find()   
     .then((technologies)=>{
         res.json(technologies)
@@ -39,7 +40,7 @@ router.get("/application/create", (req, res, next)=>{
     })
 })
 // ensuite, on fait la requête pour créer la nouvelle application, tenant aussi compte des technologies existantes
-router.post("/application/create", uploader.single("picture"), (req, res, next)=>{ // PAS OUBLIER LE IS LOGGED IN
+router.post("/application/create", protectRoute, uploader.single("picture"), (req, res, next)=>{ // PAS OUBLIER LE IS LOGGED IN
     const newApp = {...req.body}
     
     AppsModel.create(newApp)
@@ -54,7 +55,7 @@ router.post("/application/create", uploader.single("picture"), (req, res, next)=
 
 // ROUTE POUR UPDATER UNE APPLICATION
 
-router.patch("/applications/:id", uploader.single("picture"), (req, res, next)=>{
+router.patch("/applications/:id", protectRoute, uploader.single("picture"), (req, res, next)=>{
     AppsModel.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then((updatedApp)=>{
         res.status(200).json(updatedApp)
@@ -66,7 +67,7 @@ router.patch("/applications/:id", uploader.single("picture"), (req, res, next)=>
 
 
 // ROUTE POUR DELETE UNE APPLICATION
-router.delete("/applications/:id", (req, res, next) => {
+router.delete("/applications/:id", protectRoute, (req, res, next) => {
   AppsModel.findByIdAndDelete(req.params.id)
     .then(() => {
       res.status(200).json({message: "app deleted"});

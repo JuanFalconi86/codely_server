@@ -3,10 +3,11 @@ const router = express.Router();
 const CompanyModel = require("../models/CompanyModel")
 const AppsModel = require("../models/AppsModel");
 const uploader = require("../config/cloudinary");
+const protectRoute = require('./../middlewares/protectRoutes')
 
 //ROUTE TO GET ONE COMPANY PROFILE
 
-router.get("/company-profile/:id", (req, res, next) => {
+router.get("/company-profile/:id", protectRoute, (req, res, next) => {
   // PAS OUBLIER DE POPULATE
   CompanyModel.findById(req.params.id)
     .then((company) => {
@@ -22,7 +23,7 @@ router.get("/company-profile/:id", (req, res, next) => {
 
 router.patch(
   "/company-profile/:id",
-  uploader.single("picture"),
+  uploader.single("picture"),protectRoute,
   (req, res, next) => {
     // PAS OUBLIER DE POPULATE
     CompanyModel.findByIdAndUpdate(req.params.id, req.body, { new: true })
