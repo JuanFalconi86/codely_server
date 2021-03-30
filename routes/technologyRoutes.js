@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const TechnologyModel = require("../models/TechnologyModel")
+const TechnologyModel = require("../models/TechnologyModel");
+// const protectRoute = require('./../middlewares/protectRoutes')
 
 router.get("/technologies", (req, res, next) => {
   
