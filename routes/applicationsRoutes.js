@@ -39,8 +39,10 @@ router.get("/application/create", (req, res, next)=>{
     })
 })
 // ensuite, on fait la requête pour créer la nouvelle application, tenant aussi compte des technologies existantes
-router.post("/application/create", uploader.single("picture"), (req, res, next)=>{ // PAS OUBLIER LE IS LOGGED IN
-    const newApp = {...req.body}
+router.post("/application/create", uploader.single("appLogo"), (req, res, next)=>{ // PAS OUBLIER LE IS LOGGED IN
+    let appLogo = req.file.path;
+    const newApp = {...req.body, appLogo};
+    
     
     AppsModel.create(newApp)
     .then((createdApp)=>{
