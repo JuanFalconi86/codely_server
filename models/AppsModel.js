@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const appsSchema = new Schema({
-    appName: String,
+    appName: {type: String, required: true},
     appLogo: {
         type: String,
         default: "https://res.cloudinary.com/djogypr9r/image/upload/v1616695400/app-default_s975ja.jpg"
     },
-    appDescription: String,
+    appDescription: {type: String, required: true},
     technology: {
         type: [Schema.Types.ObjectId],
         ref: "Technology"
