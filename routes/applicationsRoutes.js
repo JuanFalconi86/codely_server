@@ -6,8 +6,15 @@ const uploader = require("../config/cloudinary")
 
 // ROUTE TO DISPLAY ALL THE APPLICATIONS:
 
+//POPULATE ATTEMPTS
+
+//.populate("proprietaryCompany") Error: Objects are not valid as a React child (found: object with keys {representativePhotoUrl, companyLogoUrl, _id, companyName, companyIndustry, firstName, lastName, representativePosition, email, password, createdAt, updatedAt, __v}). If you meant to render a collection of children, use an array instead.
+//.populate(JSON.stringify(proprietaryCompany)) nothing appears
+//.populate("proprietaryCompany.companyName") stays an objectId
+//.populate([proprietaryCompany]) the list of apps is no longer displayed 
+
 router.get("/applications", (req, res, next)=>{  // PAS OUBLIER DE POPULATE
-    AppsModel.find()
+    AppsModel.find().populate("proprietaryCompany")
     .then((application)=>{
         res.status(200).json(application)
     })
@@ -16,9 +23,10 @@ router.get("/applications", (req, res, next)=>{  // PAS OUBLIER DE POPULATE
     })
 })
 
+
 // ROUTE TO FIND A SINGLE APPLICATION BY ID:
 router.get("/applications/:id", (req, res, next) => {  // PAS OUBLIER DE POPULATE
-  AppsModel.findById(req.params.id)
+  AppsModel.findById(req.params.id).populate("proprietaryCompany").populate("technology")
     .then((application) => {
       res.status(200).json(application);
     })
