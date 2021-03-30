@@ -53,6 +53,7 @@ app.use("/api", applicationsRouter)
 app.use("/api", technologyRouter)
 app.use("/api", companyRouter)
 
+
 //404 Middleware
 app.use((req, res, next) => {
   const error = new Error("Ressource not found.");
