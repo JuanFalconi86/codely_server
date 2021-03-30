@@ -15,7 +15,7 @@ router.get("/company-profile/:id", (req, res, next) => {
   //   res.json(dbRes);
   //   console.log(dbRes);
   // } )
-  CompanyModel.findById(req.params.id)
+  CompanyModel.findById(req.params.id).populate("apps")
     .then((company) => {
       res.status(200).json(company);
     })
