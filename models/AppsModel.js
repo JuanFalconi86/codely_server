@@ -21,7 +21,7 @@ const appsSchema = new Schema({
         type: String,
         enum: ["Books", "Medical", "Business", "Music", "Coding",
         "Learning", "News/Media", "Social Media", "Entertainment",
-        "Phtography/Video", "Productivity", "Food/Drinks", "Search",
+        "Photography/Video", "Productivity", "Food/Drinks", "Search",
         "Gaming", "Design/Graphics", "Shopping", "Health/Fitness",
         "Lifestyle", "Sport", "Kids", "Utilities"
     ]
