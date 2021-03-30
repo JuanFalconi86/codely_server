@@ -14,6 +14,11 @@ const schema = new Schema(
       type: String,
       default: "https://t4.ftcdn.net/jpg/04/10/43/77/360_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg"
     },
+    apps: {
+      type: [Schema.Types.ObjectId],
+      ref: "Apps"
+  },
+
     firstName: String,
     lastName: String,
     representativePosition: String,
