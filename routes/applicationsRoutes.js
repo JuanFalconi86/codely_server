@@ -43,7 +43,7 @@ router.get("/application/create",protectRoute, (req, res, next)=>{
 })
 // ensuite, on fait la requête pour créer la nouvelle application, tenant aussi compte des technologies existantes
 // Route Protection to prevent non-signed in users from accessing the App Creation Form
-router.post("/application/create", protectRoute, uploader.single("appLogo"), (req, res, next)=>{ // PAS OUBLIER LE IS LOGGED IN
+router.post("/application/create", uploader.single("appLogo"), (req, res, next)=>{ // PAS OUBLIER LE IS LOGGED IN
     let appLogo = req.file.path;
     const newApp = {...req.body, appLogo};
     AppsModel.create(newApp)
