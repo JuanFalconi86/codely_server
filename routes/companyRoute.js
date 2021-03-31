@@ -3,11 +3,13 @@ const router = express.Router();
 const CompanyModel = require("../models/CompanyModel")
 const AppsModel = require("../models/AppsModel");
 const uploader = require("../config/cloudinary");
-const isLoggedIn = require('./../middlewares/isLoggedIn');
+const protectRoute = require("./../middlewares/protectAuth.js")
+
 
 //ROUTE TO GET ONE COMPANY PROFILE
+// Route Protection to give access to the company profile only to signed in users
 
-router.get("/company-profile/:id", (req, res, next) => {
+router.get("/company-profile/:id", protectRoute, (req, res, next) => {
   // PAS OUBLIER DE POPULATE
 
   // AppsModel.find({proprietaryCompany: req.session.currentUser._id}).populate('proprietaryCompany')
@@ -26,9 +28,10 @@ router.get("/company-profile/:id", (req, res, next) => {
 
 
 // ROUTE TO UPDATE ONE COMPANY PROFILE
+// Route Protection to give access to the company profile only to signed in users
 
 router.patch(
-  "/company-profile/:id",
+  "/company-profile/:id",protectRoute,
   uploader.single("picture"),
   (req, res, next) => {
     // PAS OUBLIER DE POPULATE
