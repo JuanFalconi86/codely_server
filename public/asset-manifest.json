@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/static/css/main.d7d7af97.chunk.css",
-    "main.js": "/static/js/main.00e96ebc.chunk.js",
-    "main.js.map": "/static/js/main.00e96ebc.chunk.js.map",
+    "main.js": "/static/js/main.312568ce.chunk.js",
+    "main.js.map": "/static/js/main.312568ce.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.03887cff.js",
     "runtime-main.js.map": "/static/js/runtime-main.03887cff.js.map",
-    "static/js/2.38576a51.chunk.js": "/static/js/2.38576a51.chunk.js",
-    "static/js/2.38576a51.chunk.js.map": "/static/js/2.38576a51.chunk.js.map",
+    "static/js/2.ee5e59dd.chunk.js": "/static/js/2.ee5e59dd.chunk.js",
+    "static/js/2.ee5e59dd.chunk.js.map": "/static/js/2.ee5e59dd.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.d7d7af97.chunk.css.map": "/static/css/main.d7d7af97.chunk.css.map",
-    "static/js/2.38576a51.chunk.js.LICENSE.txt": "/static/js/2.38576a51.chunk.js.LICENSE.txt",
+    "static/js/2.ee5e59dd.chunk.js.LICENSE.txt": "/static/js/2.ee5e59dd.chunk.js.LICENSE.txt",
     "static/media/codely-vector.f326a3cb.png": "/static/media/codely-vector.f326a3cb.png",
     "static/media/mainblue.331d5783.png": "/static/media/mainblue.331d5783.png",
     "static/media/home.css": "/static/media/poductbg.288dcc5d.png"
   },
   "entrypoints": [
     "static/js/runtime-main.03887cff.js",
-    "static/js/2.38576a51.chunk.js",
+    "static/js/2.ee5e59dd.chunk.js",
     "static/css/main.d7d7af97.chunk.css",
-    "static/js/main.00e96ebc.chunk.js"
+    "static/js/main.312568ce.chunk.js"
   ]
 }
