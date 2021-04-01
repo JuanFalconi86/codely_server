@@ -26,7 +26,7 @@ router.post("/signin", (req, res, next) => {
 });
 
 router.post("/signup", uploader.single("picture"), (req, res, next) => {
-  const { email, password, firstName, lastName } = req.body;
+  const { email, password, firstName, lastName, apps } = req.body;
 
   CompanyModel.findOne({ email })
     .then((userDocument) => {
@@ -35,7 +35,7 @@ router.post("/signup", uploader.single("picture"), (req, res, next) => {
       }
 
       const hashedPassword = bcrypt.hashSync(password, salt);
-      const newUser = { email, lastName, firstName, password: hashedPassword };
+      const newUser = { email, lastName, firstName, apps, password: hashedPassword };
 
       CompanyModel.create(newUser)
         .then((newUserDocument) => {
