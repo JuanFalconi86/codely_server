@@ -59,7 +59,8 @@ router.post("/application/create", uploader.single("appLogo"), (req, res, next)=
 // ROUTE POUR UPDATER UNE APPLICATION
 // Route protection using protectAuth middleware to prevent non-signed in users from accessing the Apps Id and App form Update
 
-router.patch("/applications/:id", protectRoute, uploader.single("picture"), (req, res, next)=>{
+router.patch("/applications/:id", uploader.single("appLogo"), (req, res, next)=>{
+    // let appLogo = req.file.path
     AppsModel.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then((updatedApp)=>{
         res.status(200).json(updatedApp)
