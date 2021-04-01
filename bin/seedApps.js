@@ -79,6 +79,6 @@ AppsModel.create(oneApp)
         console.log(error);
     });
 
-    mongoose.connection.close();
+    
 
 

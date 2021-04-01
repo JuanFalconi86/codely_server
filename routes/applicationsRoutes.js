@@ -71,7 +71,7 @@ router.patch("/applications/:id", uploader.single("picture"), (req, res, next)=>
 
 
 // ROUTE POUR DELETE UNE APPLICATION
-router.delete("/applications/:id", (req, res, next) => {
+router.delete("/applications/:id",(req, res, next) => {
   AppsModel.findByIdAndDelete(req.params.id)
     .then(() => {
       res.status(200).json({message: "app deleted"});
